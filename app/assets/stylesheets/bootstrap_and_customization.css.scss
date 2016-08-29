@@ -1,7 +1,22 @@
+$brand-primary: #F39C12;
+$brand-success: #16A085;
+$brand-info: #1abc9c;
+$brand-warning: #F1C40F;
+$brand-danger: #d9534f;
+
+
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
 .brandimage {
     margin-top: -12px;
     width: 45px;
+}
+
+.navbar-default {
+    background: rgb(248,248,248); /* Old browsers */
+background: -moz-linear-gradient(-45deg,  rgba(248,248,248,1) 0%, rgba(237,181,98,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  rgba(248,248,248,1) 0%,rgba(237,181,98,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  rgba(248,248,248,1) 0%,rgba(237,181,98,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#EDB562',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
