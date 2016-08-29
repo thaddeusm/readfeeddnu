@@ -11,23 +11,24 @@
       <a class="navbar-brand">
         <%= image_tag('brand.png', :alt => "Brand", :class => "inline-block brandimage") %>
       </a>
-      <p class="navbar-text">Read Feed</p>
+        <%= link_to "Read Feed", root_path, :class => "navbar-text" %>
     </div>
-
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><button type="button" class="btn btn-default navbar-btn" href="#">Sign up</button></li>
-        <li><a href="#">Log in</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">My Writing</a></li>
-            <li><a href="#">Account Settings</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Log out</a></li>
-          </ul>
-        </li>
+        <% unless user_signed_in? %>
+            <li><%= link_to "Log in", new_user_session_path %></li>
+        <% else %>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">My Writing</a></li>
+                <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            </li>
+        <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
