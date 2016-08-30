@@ -44,6 +44,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
   display: none;
 }
 
+.noresize {
+    resize: none;
+}
+
 /* this keeps a single item in the exact center - perfect for forms */
 
 .centercontainer {
@@ -60,10 +64,25 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
     padding-top: 5%;
     padding-bottom: 5%;
 }
+
+.centerrowfeeds {
+    height: 100%; 
+    display: table-cell; 
+    vertical-align: middle;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
  
 .centercolumn {
     float:none;
     margin:0 auto;
     width: 95%;
     max-width: 500px;
+}
+
+.centercolumnfeeds {
+    float:none;
+    margin:0 auto;
+    width: 95%;
+    max-width: 700px;
 }
