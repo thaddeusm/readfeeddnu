@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160830123132) do
+ActiveRecord::Schema.define(version: 20160830153113) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20160830123132) do
 
   create_table "feeds", force: :cascade do |t|
     t.string   "title"
-    t.string   "context"
-    t.string   "prompt"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.text     "context",    limit: 60000
+    t.text     "prompt",     limit: 60000
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "user_id"
     t.index ["user_id"], name: "index_feeds_on_user_id"
   end

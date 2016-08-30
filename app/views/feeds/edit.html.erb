@@ -1,6 +1,19 @@
-<h1>Editing Feed</h1>
+<div class="centercontainer">
+    <div class="centerrowfeeds">
+        <div class="centercolumnfeeds">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Editing Feed</h2>
+                </div>
+                <div class="panel-body">
+                    <%= render 'form', feed: @feed %>
+                </div>
+                <div class="panel-footer">
+                    <%= link_to 'Back', feeds_path %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<%= render 'form', feed: @feed %>
 
-<%= link_to 'Show', @feed %> |
-<%= link_to 'Back', feeds_path %>

@@ -1,19 +1,25 @@
-<p id="notice"><%= notice %></p>
+<% if current_user.try(:admin?) %>
+    <%= link_to 'Back', feeds_path %>
+<% end %>
 
-<p>
-  <strong>Title:</strong>
-  <%= @feed.title %>
-</p>
+<div class="page-header">
+    <h1><%= @feed.title %></h1>
+</div>
+<div class="well well-sm">
+    <p>
+        <%= @feed.context %>
+    </p>  
+</div>
 
-<p>
-  <strong>Context:</strong>
-  <%= @feed.context %>
-</p>
+<div class="well well-sm">
+    <p>
+        <%= @feed.prompt %>
+    </p>
+</div>
 
-<p>
-  <strong>Prompt:</strong>
-  <%= @feed.prompt %>
-</p>
-
-<%= link_to 'Edit', edit_feed_path(@feed) %> |
-<%= link_to 'Back', feeds_path %>
+<% if current_user.try(:admin?) %>
+    <div class="btn-group btn-group-justified">
+        <%= link_to 'Edit', edit_feed_path(@feed), class: "btn btn-success" %>
+        <%= link_to 'Delete', @feed, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+    </div>
+<% end %>

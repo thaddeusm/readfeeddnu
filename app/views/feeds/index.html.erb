@@ -1,29 +1,15 @@
-<h1>Feeds</h1>
+<div class="page-header">
+    <h1>Feeds</h1>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="list group">
+            <% @feeds.each do |feed| %>
+                <%= link_to feed.title, feed, class: "list-group-item" %>
+            <% end %>
+        </div>
+    </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Context</th>
-      <th>Prompt</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @feeds.each do |feed| %>
-      <tr>
-        <td><%= feed.title %></td>
-        <td><%= feed.context %></td>
-        <td><%= feed.prompt %></td>
-        <td><%= link_to 'Show', feed %></td>
-        <td><%= link_to 'Edit', edit_feed_path(feed) %></td>
-        <td><%= link_to 'Destroy', feed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
-
-<%= link_to 'New Feed', new_feed_path %>
