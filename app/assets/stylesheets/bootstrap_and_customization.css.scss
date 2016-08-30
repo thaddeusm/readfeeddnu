@@ -40,6 +40,10 @@ background: linear-gradient(135deg,  rgba(248,248,248,1) 0%,rgba(250,235,214,1) 
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#FAEBD6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
+#error_explanation h2 {
+  display: none;
+}
+
 /* this keeps a single item in the exact center - perfect for forms */
 
 .centercontainer {
