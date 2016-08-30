@@ -16,6 +16,17 @@ $alert-danger-text: #1D1F1E;
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+
+body {
+    background: repeating-linear-gradient(
+  -55deg,
+  #FFFFFF,
+  #F6FEFC 5px,
+  #FFFFFF 5px,
+  #F6FEFC 10px
+);
+}
+
 .brandimage {
     margin-top: -12px;
     width: 45px;
@@ -23,8 +34,32 @@ $alert-danger-text: #1D1F1E;
 
 .navbar-default {
     background: rgb(248,248,248); /* Old browsers */
-background: -moz-linear-gradient(-45deg,  rgba(248,248,248,1) 0%, rgba(237,181,98,1) 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(-45deg,  rgba(248,248,248,1) 0%,rgba(237,181,98,1) 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(135deg,  rgba(248,248,248,1) 0%,rgba(237,181,98,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#EDB562',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+background: -moz-linear-gradient(-45deg,  rgba(248,248,248,1) 0%, rgba(250,235,214,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg,  rgba(248,248,248,1) 0%,rgba(250,235,214,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg,  rgba(248,248,248,1) 0%,rgba(250,235,214,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#FAEBD6',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+/* this keeps a single item in the exact center - perfect for forms */
+
+.centercontainer {
+    height: 100%;
+    display: table;
+    width: 100%;
+    padding: 0;
+}
+ 
+.centerrow {
+    height: 100%; 
+    display: table-cell; 
+    vertical-align: middle;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+ 
+.centercolumn {
+    float:none;
+    margin:0 auto;
+    width: 95%;
+    max-width: 500px;
 }

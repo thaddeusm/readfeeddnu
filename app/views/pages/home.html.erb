@@ -1,7 +1,7 @@
 <% unless user_signed_in? %>
     <div class="jumbotron">
         <h1>be social</h1>
-        <p>read and write with your classmates in a digital space</p>
+        <p>read and write with your classmates in a <i>digital space</i></p>
         <p>
             <%= link_to "Log in", new_user_session_path %> or 
             <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-lg" %>
