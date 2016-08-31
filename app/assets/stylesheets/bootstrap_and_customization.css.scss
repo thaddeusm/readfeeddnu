@@ -70,8 +70,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
     height: 100%; 
     display: table-cell; 
     vertical-align: middle;
-    padding-top: 1%;
-    padding-bottom: 1%;
 }
  
 .centercolumn {
@@ -86,4 +84,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
     margin:0 auto;
     width: 95%;
     max-width: 700px;
+}
+
+.linkstyle {
+    target-new: tab;
 }
