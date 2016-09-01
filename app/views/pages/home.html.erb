@@ -11,10 +11,8 @@
     <div class="jumbotron">
         <h1>Where are you going?</h1>
         <p>
-            <%= link_to "View All Tasks", feeds_path %>
+            <%= link_to "Newest Task", @latest_feed, class: "btn btn-success btn-lg" %>
+            or <%= link_to "View All Tasks", feeds_path %>
         </p>
     </div>
-    
-    <%= link_to "Newest Task", @latest_feed %>
-    
 <% end %>
