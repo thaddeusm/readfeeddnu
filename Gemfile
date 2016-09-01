@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise', '~> 4.2.0'
 gem 'bootsy'
+gem 'summernote-rails', '~> 0.8.1.1'
 
 group :development, :test do
   gem 'sqlite3'

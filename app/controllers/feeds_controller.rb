@@ -2,9 +2,10 @@ class FeedsController < ApplicationController
   before_action :set_feed, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
+
   # GET /feeds
   def index
-    @feeds = Feed.all
+    @feeds = Feed.all.order("created_at DESC")
   end
 
   # GET /feeds/1
@@ -43,6 +44,10 @@ class FeedsController < ApplicationController
   def destroy
     @feed.destroy
       redirect_to feeds_path, notice: 'Feed was successfully deleted.'
+  end
+    
+  def newest
+    @feeds = Feed.last
   end
   
 

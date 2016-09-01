@@ -9,6 +9,12 @@
     </div>
 <% else %>
     <div class="jumbotron">
-        <h1>You are signed in!</h1>
+        <h1>Where are you going?</h1>
+        <p>
+            <%= link_to "View All Tasks", feeds_path %>
+        </p>
     </div>
+    
+    <%= link_to "Newest Task", @latest_feed %>
+    
 <% end %>

@@ -1,5 +1,5 @@
 <% if current_user.try(:admin?) %>
-    <%= link_to 'Back', feeds_path %>
+    
 <% end %>
 
 <div class="page-header">
@@ -17,9 +17,12 @@
     </p>
 </div>
 
-<% if current_user.try(:admin?) %>
-    <div class="btn-group btn-group-justified">
-        <%= link_to 'Edit', edit_feed_path(@feed), class: "btn btn-success" %>
-        <%= link_to 'Delete', @feed, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-<% end %>
+
+<div class="btn-group btn-group-justified">
+    <%= link_to 'Back', feeds_path, class: "btn btn-primary" %>
+        <% if current_user.try(:admin?) %>
+            <%= link_to 'Edit', edit_feed_path(@feed), class: "btn btn-success" %>
+            <%= link_to 'Delete', @feed, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+</div>
+
