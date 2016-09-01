@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
-  resources :feeds
+  resources :feeds do
+      resources :writings
+  end
   devise_for :users
   root 'pages#home'
 

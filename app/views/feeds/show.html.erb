@@ -27,3 +27,28 @@
         <% end %>
 </div>
 
+<% if @feed.writings %>
+    <% @feed.writings.each do |writing| %>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">by <%= writing.user.name %></h2> 
+            </div>
+            <div class="panel-body">
+                <%= writing.content %>
+            </div>
+            <div class="panel-footer">
+                <% if writing.user == current_user %>
+                    <%= link_to 'Delete', [@feed, writing], method: :delete, data: { confirm: "Are you sure?" } %>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+<% end %>
+<br>
+
+<div class="form-group">
+    <%= form_for [@feed, @feed.writings.new] do |f| %>
+        <%= f.bootsy_area :content, class:"form-control", rows: "4", placeholder: "Begin your response here...", editor_options: { image: false } %>
+        <%= f.submit class: "btn btn-success btn-block" %>
+    <% end %>
+</div>
