@@ -18,7 +18,11 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <% if current_user.try(:admin?) %>
-            <li><%= link_to "New Feed", new_feed_path %></li>
+            <li>
+                <%= link_to new_feed_path do %>
+                    <span class="glyphicon glyphicon-plus"></span> New Feed
+                <% end %>
+            </li>
             <li><%= link_to "Feeds", feeds_path %></li>
         <% end %>
         <% unless user_signed_in? %>
