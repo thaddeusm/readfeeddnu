@@ -1,6 +1,6 @@
 class ProfilesController < ApplicationController
     
   def show  
-    @writings = User.find_by(name: params[:name]).writings.order('created_at DESC')
+    @responses = User.find_by(name: params[:name]).responses.order('created_at DESC')
   end
 end

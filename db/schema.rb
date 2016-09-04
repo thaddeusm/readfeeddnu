@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160901144952) do
+ActiveRecord::Schema.define(version: 20160904102846) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -50,7 +50,20 @@ ActiveRecord::Schema.define(version: 20160901144952) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.integer  "user_id"
+    t.string   "ancestry"
+    t.index ["ancestry"], name: "index_feeds_on_ancestry"
     t.index ["user_id"], name: "index_feeds_on_user_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "commentable_id"
+    t.string   "commentable_type"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.integer  "user_id"
+    t.index ["commentable_id", "commentable_type"], name: "index_responses_on_commentable_id_and_commentable_type"
+    t.index ["user_id"], name: "index_responses_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,16 +83,6 @@ ActiveRecord::Schema.define(version: 20160901144952) do
     t.boolean  "admin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-  end
-
-  create_table "writings", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "feed_id"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["feed_id"], name: "index_writings_on_feed_id"
-    t.index ["user_id"], name: "index_writings_on_user_id"
   end
 
 end

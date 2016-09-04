@@ -1,0 +1,38 @@
+class ResponsesController < ApplicationController
+  before_filter :get_parent
+   
+  def new
+    @response = @parent.responses.build
+  end
+ 
+  def create
+    @response = @parent.responses.build(response_params)
+    @response.user_id = current_user.id
+    
+    if @response.save
+      redirect_to feed_path(@response.feed), :notice => 'Thank you for your comment!'
+    else
+      render :new
+    end
+  end
+  
+  def destroy  
+    @response = @parent.responses.find(params[:id])
+
+    @response.destroy
+    redirect_to feed_path(@response.feed), notice: "Response deleted."
+  end
+ 
+  private
+  
+  def response_params
+    params.require(:response).permit(:body)
+  end
+  
+  def get_parent
+    @parent = Feed.find_by_id(params[:feed_id]) if params[:feed_id]
+    @parent = Response.find_by_id(params[:response_id]) if params[:response_id]
+     
+    redirect_to root_path unless defined?(@parent)
+  end
+end

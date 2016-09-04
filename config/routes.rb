@@ -2,9 +2,15 @@ Rails.application.routes.draw do
   get 'profiles/show'
 
   mount Bootsy::Engine => '/bootsy', as: 'bootsy'
-  resources :feeds do
-      resources :writings
+  
+  resources :responses do
+    resources :responses
   end
+ 
+  resources :feeds do
+    resources :responses
+  end
+  
   devise_for :users
   root 'pages#home'
   get ':name', to: 'profiles#show', as: :profile

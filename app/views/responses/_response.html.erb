@@ -1,0 +1,27 @@
+<div class="panel-heading">
+    <h2 class="panel-title">by 
+        <% if response.user.name == "Thaddeus McCleary" %>
+            <%= response.user.name %>
+        <% else %>
+            <%= link_to response.user.name, profile_path(response.user.name) %>
+        <% end %>
+    </h2> 
+</div>
+<div class="panel-body">
+    <%= raw(response.body) %>
+    <p>
+        <% if response.user == current_user or current_user.try(:admin?) %>
+            <%= link_to 'Delete', [@feed, response], method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+    </p>
+</div>
+<div class="panel-footer">
+    <% unless response.responses.empty? %>
+        <% if response.user == current_user or current_user.try(:admin?) %> 
+            <%= render :partial => 'responses/response', :collection => response.responses %>
+        <% end %>
+    <% end %>
+    <% if current_user.try(:admin?) %>
+        <%= link_to 'Add a Reply', new_response_response_path(response) %>
+    <% end %>
+</div>

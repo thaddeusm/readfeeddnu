@@ -1,0 +1,10 @@
+<h1>Add a Response</h1>
+
+<div class="form-group">
+    <%= form_for [@parent, @response] do |f| %>
+        <%= f.bootsy_area :body, class:"form-control", rows: "4", placeholder: "Write your response here.", editor_options: { image: false, font_styles: false } %>
+        <%= f.submit class: "btn btn-success btn-block" %>
+    <% end %>
+</div>
+
+    
