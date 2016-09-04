@@ -1,6 +1,5 @@
 class Feed < ApplicationRecord
     belongs_to :user
-    has_many :writings, dependent: :destroy
     has_many :responses, :as => :commentable
     includes Bootsy::Container
     

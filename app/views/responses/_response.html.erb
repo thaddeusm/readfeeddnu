@@ -1,9 +1,11 @@
 <div class="panel-heading">
     <h2 class="panel-title">by 
-        <% if response.user.name == "Thaddeus McCleary" %>
-            <%= response.user.name %>
-        <% else %>
-            <%= link_to response.user.name, profile_path(response.user.name) %>
+        <% unless @feed.responses.empty? %>
+            <% if response.user.name == "Thaddeus McCleary" %>
+                <%= response.user.name %>
+            <% else %>
+                <%= link_to response.user.name, profile_path(response.user.name) %>
+            <% end %>
         <% end %>
     </h2> 
 </div>

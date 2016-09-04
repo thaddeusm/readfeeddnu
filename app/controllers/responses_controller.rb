@@ -1,6 +1,10 @@
 class ResponsesController < ApplicationController
   before_filter :get_parent
    
+  def index
+    @responses = Response.find(params[:response_id])
+  end
+  
   def new
     @response = @parent.responses.build
   end

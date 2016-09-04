@@ -38,7 +38,11 @@
                     <% end %>
                 </li>
                 <% else %>
-                <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Review Writings</a></li>
+                <li>
+                    <%= link_to reviews_show_path do %>
+                        <span class="glyphicon glyphicon-pencil"></span> Review Writings
+                    <% end %>
+                </li>
                 <% end %>
                 <li><%= link_to edit_user_registration_path do %>
                     <span class="glyphicon glyphicon-cog"></span> Account Settings

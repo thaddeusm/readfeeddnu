@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
-
-  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
   
+  get 'reviews/show'
+
   resources :responses do
     resources :responses
   end
@@ -12,8 +11,13 @@ Rails.application.routes.draw do
   end
   
   devise_for :users
+  
   root 'pages#home'
+  get 'profiles/show'
   get ':name', to: 'profiles#show', as: :profile
+
+  mount Bootsy::Engine => '/bootsy', as: 'bootsy'
+  
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
