@@ -1,7 +1,7 @@
 <% @responses.reverse_each do |response| %>
     <div class="panel panel-default">
         <div class="panel-heading">
-            <h2 class="panel-title">by <%= response.user.name %></h2> 
+            <h2 class="panel-title">by <%= response.user.name %> from "<%= link_to response.feed.title, feed_path(response.feed, @feed) %>"</h2> 
         </div>
         <div class="panel-body">
             <%= raw(response.body) %>
