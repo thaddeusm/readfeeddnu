@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   get 'reviews/show'
+  get 'responses/show'
 
   resources :responses do
     resources :responses

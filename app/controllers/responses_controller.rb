@@ -5,6 +5,10 @@ class ResponsesController < ApplicationController
     @responses = Response.find(params[:response_id])
   end
   
+  def show
+    @responses = Response.build(params[:response_id])
+  end
+  
   def new
     @response = @parent.responses.build
   end
@@ -14,7 +18,7 @@ class ResponsesController < ApplicationController
     @response.user_id = current_user.id
     
     if @response.save
-      redirect_to feed_path(@response.feed), :notice => 'Thank you for your comment!'
+      redirect_to feed_path(@response.feed), :notice => 'Thank you for your response!'
     else
       render :new
     end

@@ -1,7 +1,7 @@
 <div class="panel-heading">
     <h2 class="panel-title">by 
         <% unless @feed.responses.empty? %>
-            <% if response.user.name == "Thaddeus McCleary" %>
+            <% if response.user.try(:admin?) %>
                 <%= response.user.name %>
             <% else %>
                 <%= link_to response.user.name, profile_path(response.user.name) %>

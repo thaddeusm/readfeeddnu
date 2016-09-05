@@ -1,5 +1,11 @@
-<% @responses.each do |response| %>
-    <%= raw(response.body) %>
-    <br>
+<% @responses.reverse_each do |response| %>
+    <% if response.responses.empty? %>
+        <% unless response.user.name == "Thaddeus McCleary" %>       
+            <%= raw(response.body) %> by <%= response.user.name %> in <%= link_to response.feed.title, feed_path(response.feed, @feed) %>
+            <br>
+            <%= link_to 'Add a Reply', new_response_response_path(response) %>
+            <br>
+            <br>
+        <% end %>
+    <% end %>
 <% end %>
-            
