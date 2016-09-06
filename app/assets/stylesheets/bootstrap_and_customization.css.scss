@@ -16,6 +16,7 @@ $well-bg: #FFFFFF;
 
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+@import 'animate';
 
 
 body {
@@ -88,4 +89,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
     margin:0 auto;
     width: 95%;
     max-width: 900px;
+}
+
+.alert {
+    -webkit-animation-delay: 3s;
+    -moz-animation-delay: 3s;
+    -o-animation-delay: 3s;
+    -ms-animation-delay: 3s;
 }

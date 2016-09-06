@@ -14,6 +14,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'devise', '~> 4.2.0'
 gem 'bootsy'
 gem 'summernote-rails', '~> 0.8.1.1'
+gem 'animate.css-rails', '~> 3.2.0'
 
 group :development, :test do
   gem 'sqlite3'
