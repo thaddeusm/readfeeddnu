@@ -6,4 +6,5 @@ class Feed < ApplicationRecord
     validates :title, :presence => "true"
     validates :context, :presence => "true"
     validates :prompt, :presence => "true"
+    validates :focus, :presence => "true"
 end

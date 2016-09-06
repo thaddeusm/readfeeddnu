@@ -25,6 +25,11 @@
     <%= f.label :prompt %>
     <%= f.bootsy_area :prompt, class: "form-control", rows: "3", placeholder: "What should students write about?", editor_options: { image: false } %>
   </div>
+  
+  <div class="form-group">
+    <%= f.label :focus %>
+    <%= f.text_field :focus, class: "form-control", placeholder: "ex: summaries, opinions, e-mails" %>
+  </div>
 
   <div class="form-group">
     <%= f.submit class: "btn btn-success btn-block" %>
