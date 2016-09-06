@@ -1,5 +1,8 @@
-<p>Welcome <%= @email %>!</p>
+<div class="jumbotron">
+    <h1>Welcome <%= @email %>!</h1>
+    <br>
+    <p>You can confirm your account email through the link below:</p>
+    <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+</div>
 
-<p>You can confirm your account email through the link below:</p>
 
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
