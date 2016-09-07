@@ -12,6 +12,10 @@ class ResponsesController < ApplicationController
   def new
     @response = @parent.responses.build
   end
+
+  def home
+    @latest_feed = Feed.order(:id).last
+  end
  
   def create
     @response = @parent.responses.build(response_params)

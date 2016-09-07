@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   
+  def home
+    @latest_feed = Feed.order(:id).last
+  end
+
   get 'reviews/show'
   get 'responses/show'
 
