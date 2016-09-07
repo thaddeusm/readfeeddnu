@@ -25,7 +25,7 @@ class ResponsesController < ApplicationController
   end
   
   def destroy  
-    @response = @parent.responses.find(params[:id])
+    @response = Response.find(params[:id])
 
     @response.destroy
     redirect_to feed_path(@response.feed), notice: "Response deleted."
