@@ -3,7 +3,7 @@
         <h1>"<%= @feed.title %>"</h1>
         <small>by <%= @feed.user.name %></small>
     </div>
-    <div>
+    <div class="well well-sm">
         <p>
             <%= raw(@feed.context) %>
         </p>
@@ -11,6 +11,7 @@
         <h3>Write About It</h3>  
         <p>
             <%= simple_format(@feed.prompt) %>
+            <br>
         </p>
     </div>
     <br>
@@ -26,8 +27,9 @@
     </div>
     <br>
     <br>
-    <h3>Responses</h3>
-    <br>
+    <div class="page-header">
+        <h3>Responses</h3>
+    </div>
     <%= render :partial => 'responses/response', :collection => @feed.responses %>
 <% else %>
     <div class="jumbotron">

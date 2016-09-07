@@ -1,10 +1,27 @@
-<h1>Add a Response</h1>
-
-<div class="form-group">
-    <%= form_for [@parent, @response] do |f| %>
-        <%= f.bootsy_area :body, class:"form-control", rows: "4", placeholder: "Write your response here.", editor_options: { image: false, font_styles: false } %>
-        <%= f.submit class: "btn btn-success btn-block" %>
-    <% end %>
+<div class="centercontainer">
+    <div class="centerrowfeeds">
+        <div class="centercolumnfeeds">
+        	<div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">Write a Response</h2>
+                </div>
+                <div class="panel-body">
+                    <%= form_for [@parent, @response] do |f| %>
+        				<div class="form-group">
+        					<%= f.bootsy_area :body, class:"form-control", rows: "4", placeholder: "Write your response here.", editor_options: { image: false, font_styles: false } %>
+        				</div>
+        				<div class="form-group">
+        					<%= f.submit class: "btn btn-success btn-block" %>
+						</div>    				
+    				<% end %>
+                </div>
+                <div class="panel-footer">
+                    <%= link_to 'Back', :back %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
 
     

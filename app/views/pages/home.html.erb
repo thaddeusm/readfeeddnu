@@ -10,9 +10,10 @@
 <% else %>
     <div class="jumbotron">
         <h1>Where are you going?</h1>
+        <br>
         <p>
-            <%= link_to "Newest Task", @latest_feed, class: "btn btn-success btn-lg" %>
-            or <%= link_to "View All Tasks", feeds_path %>
+            <%= link_to "Newest Feed", @latest_feed, class: "btn btn-success btn-lg" %>
+            or <%= link_to "View All Feeds", feeds_path %>
         </p>
     </div>
 <% end %>

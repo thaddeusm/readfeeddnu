@@ -12,6 +12,9 @@ class FeedsController < ApplicationController
   def show
   end
 
+  def showafter
+  end
+
   # GET /feeds/new
   def new
     @feed = current_user.feeds.build
