@@ -1,21 +1,20 @@
 <% if user_signed_in? %> 
     <div class="page-header">
-        <h1><%= @feed.title %></h1>
+        <h1>"<%= @feed.title %>"</h1>
         <small>by <%= @feed.user.name %></small>
     </div>
-    <div class="well well-sm linkstyle">
+    <div>
         <p>
             <%= raw(@feed.context) %>
-        </p>  
-    </div>
-
-    <div class="well well-sm">
+        </p>
+        <br>
+        <h3>Write About It</h3>  
         <p>
             <%= simple_format(@feed.prompt) %>
         </p>
     </div>
-
-
+    <br>
+    <br>
     <div class="btn-group btn-group-justified">
         <% if current_user.try(:admin?) %>
             <%= link_to 'Back', feeds_path, class: "btn btn-primary" %>
@@ -25,14 +24,11 @@
             <%= link_to 'Write Your Response', new_feed_response_path(@feed), class: "btn btn-primary" %>
         <% end %>
     </div>
-
+    <br>
+    <br>
     <h3>Responses</h3>
-    
-    <div class="panel panel-default">
-        <%= render :partial => 'responses/response', :collection => @feed.responses %>
-    </div>
-
-
+    <br>
+    <%= render :partial => 'responses/response', :collection => @feed.responses %>
 <% else %>
     <div class="jumbotron">
         <h1>be social</h1>

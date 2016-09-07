@@ -4,23 +4,11 @@
     </div>
     <div class="row">
         <div class="col-xs-12">
-            <div class="list group">
-                <% @feeds.each do |feed| %>
-                    <%= link_to feed.title, feed, class: "list-group-item" %>
-                <% end %>
-                <br>
-                <% if current_user.try(:admin?) %>
-                    <%= link_to "New Feed", new_feed_path, class: "btn btn-info btn-md" %>
-                <% end %>
-                <% unless current_user.try(:admin?) %>
-                    <%= link_to "Back", root_path, class: "btn btn-info btn-md" %>
-                <% end %>
-            </div>
             <% @feeds.each do |feed| %>
-                <div class="jumbotron">
-                    <h2><%= link_to feed.title, feed %></h2>
+                <div class="jumbotron lightorange">
+                    <h2>"<%= link_to feed.title, feed %>"</h2>
                     <br>
-                    <h3>This week you will practice writing <i><%= feed.focus %></i>.</h3>
+                    <p>This week you will practice writing <i><%= feed.focus %></i>.</p>
                     <%= link_to "Read More", feed, class: "btn btn-default" %>
                 </div>
             <% end %>
