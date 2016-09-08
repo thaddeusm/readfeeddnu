@@ -22,8 +22,8 @@
                             <span class="glyphicon glyphicon-plus"></span> New Feed
                         <% end %>
                     </li>
-                    <li><%= link_to "Feeds", feeds_path %></li>
-                <% else %>
+                <% end %>
+                <% if user_signed_in? %>
                     <li>
                         <%= link_to feeds_path do %>
                             <span class="glyphicon glyphicon-list"></span> Feeds
