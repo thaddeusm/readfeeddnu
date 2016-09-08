@@ -1,6 +1,16 @@
 <div class="centercontainer">
     <div class="centerrowfeeds">
         <div class="centercolumnfeeds">
+            <div class="jumbotron"> 
+                <p>
+                    <% if @parent %>
+                        <%= raw(@parent.prompt) %>
+                    <% else %>
+                        <%= raw(@parent.body) %>
+                    <% end %> 
+                    <br>
+                </p>
+            </div>
         	<div class="panel panel-default">
                 <div class="panel-heading">
                     <h2 class="panel-title">Write a Response</h2>
