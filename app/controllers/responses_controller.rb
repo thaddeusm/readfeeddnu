@@ -16,7 +16,7 @@ class ResponsesController < ApplicationController
   def home
     @latest_feed = Feed.order(:id).last
   end
- 
+
   def create
     @response = @parent.responses.build(response_params)
     @response.user_id = current_user.id

@@ -3,7 +3,7 @@
         <div class="centercolumnfeeds">
             <div class="jumbotron"> 
                 <p>
-                    <% if @parent %>
+                    <% if @parent.try(:commentable?) %>
                         <%= raw(@parent.prompt) %>
                     <% else %>
                         <%= raw(@parent.body) %>
