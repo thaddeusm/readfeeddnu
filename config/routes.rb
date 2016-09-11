@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     @latest_feed = Feed.order(:id).last
   end
 
+  get 'pages/privacy'
   get 'reviews/show'
   get 'responses/show'
 
