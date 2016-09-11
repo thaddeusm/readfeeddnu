@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Read Feed was created as a simple way for educators to deliver learning content and facilitate interactions between learners.  Concerning design and development, the app attempts to apply:
 
-Things you may want to cover:
+* mobile-first development through Bootstrap
 
-* Ruby version
+* minimal data usage for page loads
 
-* System dependencies
+* strong privacy standards
 
-* Configuration
+* flexibility to include all learning mediums
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This version is considered 'beta', being used by one pilot institution in hopes of creating a global version in the future.
