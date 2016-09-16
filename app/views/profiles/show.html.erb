@@ -1,34 +1,41 @@
 <% @responses.reverse_each do |response| %>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h2 class="panel-title"> 
-                <% if current_user == response.user %>
-                    Me
-                <% else %>
-                    <%= response.user.name %> 
-                <% end %>
-                from "<%= link_to response.feed.title, feed_path(response.feed, @feed) %>"
-            </h2> 
-        </div>
-        <div class="panel-body">
-            <%= raw(response.body) %>
-            <p>
-                <% if response.user == current_user or current_user.try(:admin?) %>
-                    <br><%= link_to 'Delete', [@feed, response], class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: "Are you sure?" } %>
-                <% end %>
-            </p>
-        </div>
-        <% if current_user.try(:admin?) or current_user == response.user(response) or response.user.try(:admin?) %>
-        <div class="panel-footer">
-            <%= link_to 'Add a Reply', new_response_response_path(response) %>
-        </div>
-    <% end %>
-    </div>
-    <% unless response.responses.empty? %>
-        <% if response.user == current_user or current_user.try(:admin?) or response.user.try(:admin?) %> 
-            <div class="indentit">
-                <%= render :partial => 'responses/response', :collection => response.responses %>
+    <% if current_user == response.user %>  
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title"> 
+                    <% if current_user == response.user %>
+                        Me
+                    <% else %>
+                        <%= response.user.name %> 
+                    <% end %>
+                    from "<%= link_to response.feed.title, feed_path(response.feed, @feed) %>"
+                </h2> 
+            </div>
+            <div class="panel-body">
+                <%= raw(response.body) %>
+                <p>
+                    <% if response.user == current_user or current_user.try(:admin?) %>
+                        <br><%= link_to 'Delete', [@feed, response], class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: "Are you sure?" } %>
+                    <% end %>
+                </p>
+            </div>
+            <% if current_user.try(:admin?) or current_user == response.user(response) or response.user.try(:admin?) %>
+            <div class="panel-footer">
+                <%= link_to 'Add a Reply', new_response_response_path(response) %>
             </div>
         <% end %>
-    <% end %>     
+        </div>
+        <% unless response.responses.empty? %>
+            <% if response.user == current_user or current_user.try(:admin?) or response.user.try(:admin?) %> 
+                <div class="indentit">
+                    <%= render :partial => 'responses/response', :collection => response.responses %>
+                </div>
+            <% end %>
+        <% end %> 
+    <% else %>
+        <div class="jumbotron">
+            <h1>Not authorized.</h1>
+            <p><%= link_to "Go Back", root_path, class: "btn btn-info" %></p>
+        </div>
+    <% end %>
 <% end %>

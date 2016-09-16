@@ -1,17 +1,24 @@
-<% @responses.reverse_each do |response| %>
-    <% if response.responses.empty? %>
-        <% unless response.user.name == "Thaddeus McCleary" %>
-        	<div class="panel panel-default">
-        		<div class="panel-heading">
-        			<h1 class="panel-title">by <strong><%= response.user.name %></strong> in "<%= link_to response.feed.title, feed_path(response.feed, @feed) %>"</h1>
-        		</div>
-        		<div class="panel-body">       
-            		<%= raw(response.body) %>
-            	</div>
-                <div class="panel-footer">
-                    <%= link_to 'Add a Reply', new_response_response_path(response) %>
+<% if current_user.try(:admin?) %>
+    <% @responses.reverse_each do |response| %>
+        <% if response.responses.empty? %>
+            <% unless response.user.name == "Thaddeus McCleary" %>
+            	<div class="panel panel-default">
+            		<div class="panel-heading">
+            			<h1 class="panel-title">by <strong><%= response.user.name %></strong> in "<%= link_to response.feed.title, feed_path(response.feed, @feed) %>"</h1>
+            		</div>
+            		<div class="panel-body">       
+                		<%= raw(response.body) %>
+                	</div>
+                    <div class="panel-footer">
+                        <%= link_to 'Add a Reply', new_response_response_path(response) %>
+                    </div>
                 </div>
-            </div>
+            <% end %>
         <% end %>
     <% end %>
+<% else %>
+    <div class="jumbotron">
+        <h1>Not authorized.</h1>
+        <p><%= link_to "Go Back", root_path, class: "btn btn-info" %></p>
+    </div>
 <% end %>
