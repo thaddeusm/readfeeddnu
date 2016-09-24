@@ -12,8 +12,8 @@
                 <%= image_tag('brand.png', :alt => "Brand", :class => "inline-block brandimage") %>
             <% end %>
             </div>
+            <a class="navbar-brand">Read Feed</a>
         </div>
-        <a class="navbar-brand">Read Feed</a>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <% if current_user.try(:admin?) %>
