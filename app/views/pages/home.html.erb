@@ -7,7 +7,7 @@
                 <br>
                 <p>
                     <%= link_to "Log in", new_user_session_path %> or 
-                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-lg" %>
+                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success" %>
                 </p>
             </div>
         <% else %>
@@ -15,7 +15,7 @@
                 <h1>Where are you going?</h1>
                 <br>
                 <p>
-                    <%= link_to "Newest Feed", @latest_feed, class: "btn btn-success btn-lg" %>
+                    <%= link_to "Newest Feed", @latest_feed, class: "btn btn-success" %>
                     or <%= link_to "View All Feeds", feeds_path %>
                 </p>
             </div>
