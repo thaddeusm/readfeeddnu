@@ -1,3 +1,5 @@
+@import 'https://fonts.googleapis.com/css?family=Cabin|Lato';
+
 $brand-primary: #16A085;
 $brand-success: #F39C12;
 $brand-info: #1abc9c;
@@ -12,6 +14,7 @@ $alert-info-text: #1D1F1E;
 $alert-warning-text: #1D1F1E;
 $alert-danger-text: #1D1F1E;
 $well-bg: #FFFFFF;
+$font-family-sans-serif: 'Lato', sans-serif;
 
 
 @import 'bootstrap-sprockets';
