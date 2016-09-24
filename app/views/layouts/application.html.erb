@@ -8,15 +8,23 @@
     <%= javascript_include_tag 'application' %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= favicon_link_tag 'logo.png' %>
+    <%= render 'layouts/header' %>
+    <% flash.each do |name, msg| %>
+          <%= content_tag(:div, msg, class: "alert alert-info animated fadeOut") %>
+        <% end %>
   </head>
 
   <body>
-       <%= render 'layouts/header' %>
-        <div class="container">
-           <% flash.each do |name, msg| %>
-               <%= content_tag(:div, msg, class: "alert alert-info animated fadeOut") %>
-           <% end %>
-            <%= yield %>
-        </div>
+    <div class="container-fluid" id="container">
+      <div id="header">
+        
+      </div>
+      <div id="content">
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <%= render 'layouts/footer' %>
+      </div>
+    </div>
   </body>
 </html>

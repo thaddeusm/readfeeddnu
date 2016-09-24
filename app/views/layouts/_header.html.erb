@@ -1,68 +1,64 @@
-<div class="headerdiv">    
-    <nav class="navbar navbar-default">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                </button>
-                <div class="navbar-brand animated flipInX">
-                <%= link_to root_path do %>
-                    <%= image_tag('brand.png', :alt => "Brand", :class => "inline-block brandimage") %>
-                <% end %>
-                </div>
-            </div>
-            <ul class="nav navbar-nav navbar-left">
-                <li><a href="http://www.enupgrade.com/" target="_blank">from English Upgrade</a></li>
-            </ul>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <% if current_user.try(:admin?) %>
-                        <li>
-                            <%= link_to new_feed_path do %>
-                                <span class="glyphicon glyphicon-plus"></span> New Feed
-                            <% end %>
-                        </li>
-                    <% end %>
-                    <% if user_signed_in? %>
-                        <li>
-                            <%= link_to feeds_path do %>
-                                <span class="glyphicon glyphicon-list"></span> Feeds
-                            <% end %>
-                        </li>
-                    <% end %>
-                    <% unless user_signed_in? %>
-                        <li><%= link_to "Log in", new_user_session_path %></li>
-                    <% else %>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <%= current_user.name %> <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <% unless current_user.try(:admin?) %>
-                                    <li>
-                                        <%= link_to profile_url(current_user.name) do %>
-                                            <span class="glyphicon glyphicon-pencil"></span> My Writings
-                                        <% end %>
-                                    </li>
-                                <% else %>
-                                    <li>
-                                        <%= link_to reviews_show_path do %>
-                                            <span class="glyphicon glyphicon-pencil"></span> Review Writings
-                                        <% end %>
-                                    </li>
-                                <% end %>
-                                <li><%= link_to edit_user_registration_path do %>
-                                    <span class="glyphicon glyphicon-cog"></span> Account Settings
-                                    <% end %>
-                                </li>
-                                <li role="separator" class="divider"></li>
-                                <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-                            </ul>
-                        </li>
-                    <% end %>
-                </ul>
+<nav class="navbar navbar-fixed-top navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand animated flipInX">
+            <%= link_to root_path do %>
+                <%= image_tag('brand.png', :alt => "Brand", :class => "inline-block brandimage") %>
+            <% end %>
             </div>
         </div>
-    </nav>
-</div>
+        <%= link_to "Read Feed", root_path, class: "navbar-brand" %>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <% if current_user.try(:admin?) %>
+                    <li>
+                        <%= link_to new_feed_path do %>
+                            <span class="glyphicon glyphicon-plus"></span> New Feed
+                        <% end %>
+                    </li>
+                <% end %>
+                <% if user_signed_in? %>
+                    <li>
+                        <%= link_to feeds_path do %>
+                            <span class="glyphicon glyphicon-list"></span> Feeds
+                        <% end %>
+                    </li>
+                <% end %>
+                <% unless user_signed_in? %>
+                    <li><%= link_to "Log in", new_user_session_path %></li>
+                <% else %>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <%= current_user.name %> <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <% unless current_user.try(:admin?) %>
+                                <li>
+                                    <%= link_to profile_url(current_user.name) do %>
+                                        <span class="glyphicon glyphicon-pencil"></span> My Writings
+                                    <% end %>
+                                </li>
+                            <% else %>
+                                <li>
+                                    <%= link_to reviews_show_path do %>
+                                        <span class="glyphicon glyphicon-pencil"></span> Review Writings
+                                    <% end %>
+                                </li>
+                            <% end %>
+                            <li><%= link_to edit_user_registration_path do %>
+                                <span class="glyphicon glyphicon-cog"></span> Account Settings
+                                <% end %>
+                            </li>
+                            <li role="separator" class="divider"></li>
+                            <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+                        </ul>
+                    </li>
+                <% end %>
+            </ul>
+        </div>
+    </div>
+</nav>

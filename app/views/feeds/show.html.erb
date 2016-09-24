@@ -1,37 +1,45 @@
 <% if user_signed_in? %> 
-    <div class="page-header">
-        <h1>"<%= @feed.title %>"</h1>
-        <small>by <%= @feed.user.name %></small>
-    </div>
-    <div class="well well-sm">
-        <p>
-            <%= raw(@feed.context) %>
-        </p>
-        <br>
-        <h3>Write About It</h3>  
-        <p>
-            <%= simple_format(@feed.prompt) %>
+    <div class="row">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <div class="page-header">
+                <h1>"<%= @feed.title %>"
+                <br>
+                    <small class="indent-name">by <%= @feed.user.name %></small>
+                </h1>
+            </div>
+            <div class="well">
+                <h3><span class="glyphicon glyphicon-paperclip"></span> Check this out:</h3>
+                <p>
+                    <%= raw(@feed.context) %>
+                </p>
+            </div>
+            <div class="well">
+                <h3><span class="glyphicon glyphicon-pencil"></span> Write about it:</h3>  
+                <p>
+                    <%= simple_format(@feed.prompt) %>
+                </p>
+            </div>
             <br>
-        </p>
+            <br>
+            <div class="btn-group btn-group-justified">
+                <% if current_user.try(:admin?) %>
+                    <%= link_to 'Back', feeds_path, class: "btn btn-primary" %>
+                    <%= link_to 'Edit', edit_feed_path(@feed), class: "btn btn-success" %>
+                    <%= link_to 'Delete', @feed, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% else %>
+                    <%= link_to 'Write Your Response', new_feed_response_path(@feed), class: "btn btn-primary" %>
+                <% end %>
+            </div>
+            <br>
+            <br>
+            <div class="page-header">
+                <h3>Responses</h3>
+            </div>
+            <div class="responsesdiv">
+                <%= render :partial => 'responses/response', :collection => @feed.responses %>
+            </div>
+        </div>
     </div>
-    <br>
-    <br>
-    <div class="btn-group btn-group-justified">
-        <% if current_user.try(:admin?) %>
-            <%= link_to 'Back', feeds_path, class: "btn btn-primary" %>
-            <%= link_to 'Edit', edit_feed_path(@feed), class: "btn btn-success" %>
-            <%= link_to 'Delete', @feed, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% else %>
-            <%= link_to 'Write Your Response', new_feed_response_path(@feed), class: "btn btn-primary" %>
-        <% end %>
-    </div>
-    <br>
-    <br>
-    <div class="page-header">
-        <h3>Responses</h3>
-    </div>
-    <%= render :partial => 'responses/response', :collection => @feed.responses %>
-    <%= render 'layouts/footerup' %>
 <% else %>
     <div class="jumbotron">
         <h1>be social</h1>

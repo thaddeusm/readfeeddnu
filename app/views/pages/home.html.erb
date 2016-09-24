@@ -1,20 +1,24 @@
-<% unless user_signed_in? %>
-    <div class="jumbotron">
-        <h1>be social</h1>
-        <p>read and write with your classmates in a <i>digital space</i></p>
-        <br>
-        <p>
-            <%= link_to "Log in", new_user_session_path %> or 
-            <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-lg" %>
-        </p>
+<div class="row">
+    <div class="col-xs-12 col-md-10 col-md-offset-1">
+        <% unless user_signed_in? %>
+            <div class="jumbotron">
+                <h1>be social</h1>
+                <p>read and write with your classmates in a <i>digital space</i></p>
+                <br>
+                <p>
+                    <%= link_to "Log in", new_user_session_path %> or 
+                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success btn-lg" %>
+                </p>
+            </div>
+        <% else %>
+            <div class="jumbotron">
+                <h1>Where are you going?</h1>
+                <br>
+                <p>
+                    <%= link_to "Newest Feed", @latest_feed, class: "btn btn-success btn-lg" %>
+                    or <%= link_to "View All Feeds", feeds_path %>
+                </p>
+            </div>
+        <% end %>
     </div>
-<% else %>
-    <div class="jumbotron">
-        <h1>Where are you going?</h1>
-        <br>
-        <p>
-            <%= link_to "Newest Feed", @latest_feed, class: "btn btn-success btn-lg" %>
-            or <%= link_to "View All Feeds", feeds_path %>
-        </p>
-    </div>
-<% end %>
+</div>
