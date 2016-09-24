@@ -13,7 +13,7 @@
             <% end %>
             </div>
         </div>
-        <%= link_to "Read Feed", root_path, class: "navbar-brand" %>
+        <a class="navbar-brand">Read Feed</a>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <% if current_user.try(:admin?) %>
