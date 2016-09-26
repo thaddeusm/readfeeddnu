@@ -1,4 +1,6 @@
-# README
+![Read Feed](/images/textonly.png)
+
+# Read Feed
 
 Read Feed was created as a simple way for educators to deliver learning content and facilitate interactions between learners.  Concerning design and development, the app attempts to apply:
 
