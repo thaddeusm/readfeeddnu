@@ -1,4 +1,4 @@
-<img src="textonly.png" alt="Read Feed" style="width: 200px;"/>
+<img src="/app/assets/images/textonly.png" alt="Read Feed" style="width: 100px;"/>
 
 # Read Feed
 
