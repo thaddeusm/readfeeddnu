@@ -1,4 +1,4 @@
-![Read Feed](/images/textonly.png)
+![Read Feed](/app/assets/images/textonly.png)
 
 # Read Feed
 
