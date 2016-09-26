@@ -1,4 +1,4 @@
-<img src="/app/assets/images/textonly.png" alt="Read Feed" style="width: 100px;"/>
+![Read Feed](/app/assets/images/textonlygit.png)
 
 # Read Feed
 
