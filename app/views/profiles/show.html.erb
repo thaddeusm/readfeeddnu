@@ -1,7 +1,9 @@
 <div class="row">
     <div class="col-xs-12 col-md-10 col-md-offset-1">
+    <div class="page-header">
+        <h2>My Writings</h2>
+    </div>
         <% @responses.reverse_each do |response| %>
-            <% if current_user == response.user %>  
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2 class="panel-title">by  
@@ -34,12 +36,6 @@
                         </div>
                     <% end %>
                 <% end %> 
-            <% else %>
-                <div class="jumbotron">
-                    <h1>Not authorized.</h1>
-                    <p><%= link_to "Go Back", root_path, class: "btn btn-info" %></p>
-                </div>
-            <% end %>
         <% end %>
     </div>
 </div>

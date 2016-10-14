@@ -12,7 +12,7 @@
         <%= raw(response.body) %>
         <p>
             <% if response.user == current_user or current_user.try(:admin?) %>
-                <br><%= link_to 'Delete', [@feed, response], class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: "Are you sure?" } %>
+                <br><%= link_to 'Edit', edit_feed_response_path(@feed, response), class: 'btn btn-success btn-sm' %> | <%= link_to 'Delete', [@feed, response], class: 'btn btn-danger btn-sm', method: :delete, data: { confirm: "Are you sure?" } %>
             <% end %>
         </p>
     </div>
@@ -24,8 +24,15 @@
 </div>
 <% unless response.responses.empty? %>
     <% if response.user == current_user or current_user.try(:admin?) or response.user.try(:admin?) %> 
-        <div class="indentit">
-            <%= render :partial => 'responses/response', :collection => response.responses %>
+        <div class="row">
+            <div class="col-xs-1 replydiv text-right">
+                <h6><span class="fa fa-mail-reply"></span></h6>
+            </div>
+            <div class="col-xs-11">
+                <div class="indentit">
+                    <%= render :partial => 'responses/response', :collection => response.responses %>
+                </div>
+            </div>
         </div>
     <% end %>
 <% end %>

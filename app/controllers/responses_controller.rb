@@ -17,6 +17,20 @@ class ResponsesController < ApplicationController
     @latest_feed = Feed.order(:id).last
   end
 
+  def edit
+    @response = Response.find(params[:id])
+  end
+
+  def update
+    @response = Response.find(params[:id])
+    
+    if @response.update(response_params)
+      redirect_to feed_path(@response.feed), notice: 'Response was successfully updated.'
+    else
+      render :edit
+    end
+  end
+
   def create
     @response = @parent.responses.build(response_params)
     @response.user_id = current_user.id
