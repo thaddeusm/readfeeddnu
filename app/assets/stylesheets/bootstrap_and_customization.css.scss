@@ -27,13 +27,8 @@ html, body {
 }
 
 body {
-    background: repeating-linear-gradient(
-  -55deg,
-  #FFFFFF,
-  #F6FEFC 5px,
-  #FFFFFF 5px,
-  #F6FEFC 10px
-);
+    background-color: #F1FAF8;
+    background-image: image-url("squairy.png");
 }
 
 .innercontainer {
@@ -170,4 +165,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', end
 
 .footer-space {
     margin-bottom: 70px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
 }
